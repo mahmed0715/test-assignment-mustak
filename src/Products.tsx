@@ -19,7 +19,7 @@ const countQuery = gql`
 
 export function Products(): JSX.Element {
 
-  const { data } = useQuery(countQuery);
+  const { data } = useQuery(countQuery, { fetchPolicy: 'cache-and-network' });
 
   return (
     <div>
