@@ -12,15 +12,6 @@ import { CreateProduct } from './CreateProduct';
 const { Header, Content } = Layout;
 const { Title } = Typography;
 
-// const createApolloClient = () => {
-//   return new ApolloClient({
-//     link: new HttpLink({
-//       uri: 'http://localhost:8080/v1/graphql',
-//     }),
-//     cache: new InMemoryCache(),
-//   });
-// };
-
 const httpLink = createHttpLink({
   uri: 'https://fast-weasel-48.hasura.app/v1/graphql',
 });
@@ -43,8 +34,6 @@ const client = new ApolloClient({
 });
 function App() {
 
-  // const [client] = useState(createApolloClient());
-
   return (
     <ApolloProvider client={client}>
 
@@ -63,8 +52,6 @@ function App() {
           </Content>
         </Layout>
       </div>
-
-
     </ApolloProvider>
   );
 
