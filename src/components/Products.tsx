@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import Statistic from 'antd/es/statistic/Statistic';
-import { ListProducts } from './components/ListProducts';
+import { ListProducts } from './ListProducts';
 import { Link } from 'react-router-dom';
 import { Button, Card, Space } from 'antd';
 

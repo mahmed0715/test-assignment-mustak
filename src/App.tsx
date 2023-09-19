@@ -4,39 +4,36 @@ import { setContext } from '@apollo/client/link/context';
 import { Layout, Typography } from 'antd';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
-import { Products } from './Products';
-import { CreateProduct } from './CreateProduct';
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+import { Products } from './components/Products';
+import { CreateProduct } from './components/CreateProduct';
 
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
 
-const httpLink = createHttpLink({
-  uri: 'https://fast-weasel-48.hasura.app/v1/graphql',
-});
+const httpLinkLocal = new HttpLink({
+  uri: 'http://localhost:8080/v1/graphql',
+})
 
-const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  // const token = localStorage.getItem('token');
-  // return the headers to the context so httpLink can read them
+const authLinkLocal = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      "x-hasura-admin-secret": "mYxQV3ltUAKfqcBYpVLSaeNbzSKlinpaNIs0LfLIdmp136WAXYKAkYTUwf0zYn4e",
+      "x-hasura-admin-secret": "myadminsecretkey",
     }
   }
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: authLinkLocal.concat(httpLinkLocal),
   cache: new InMemoryCache()
 });
-function App() {
 
+function App() {
+  
   return (
     <ApolloProvider client={client}>
-
       <div className="App">
         <Layout style={{ height: '100vh' }}>
           <Header style={{ display: 'flex', alignItems: 'center' }}>

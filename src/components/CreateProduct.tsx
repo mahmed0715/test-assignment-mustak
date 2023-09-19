@@ -11,19 +11,23 @@ interface ProductInput {
 }
 
 const ADD_PRODUCT = gql`
-    mutation($name: String!
+    mutation(
+        $name: String!
         $description: String!
-        $price: Int!
-        $stock: Int!) {
-      insert_products_one(object: {name: $name
+        $price: numeric!
+        $stock: Int!
+        ) {
+      insert_products_one(object: {
+        name: $name
         description: $description
         price: $price
-        stock: $stock}) {
-        id
-        name
-        description
-        price
-        stock
+        stock: $stock
+        }) {
+            id
+            name
+            description
+            price
+            stock
       }
     }
   `;

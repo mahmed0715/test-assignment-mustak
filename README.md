@@ -1,3 +1,4 @@
+
 # Product inventory app
 
 Goal of the assignment is to create a minimalistic product inventory system.
@@ -43,12 +44,18 @@ Hasura console is available at http://localhost:8080/console.
 To add migrations for new database tables, you would have to run Hasura console locally using [Hasura CLI](https://hasura.io/docs/latest/hasura-cli/overview/).# test-assignment-mustak
 
 
-Comment from Mustak
-- Used hasura cloud graphql endpoint, so no need to run docker compose up
-- run > yarn install
-- run > yarn start
+Instruction to run the application from Mustak
+- get the repo, on main branch
+- run `yarn install` on root
+- Install hasura-cli globally > `yarn global add hasusa-cli`
+- run `docker compose up`, this will run our database and hasura engine connected to it
+- after all the servcies run, on another terminal run 
+  `hasura migrate apply --admin-secret=myadminsecretkey` select `db` if cli asks for selection
+  `hasura metadata apply --admin-secret=myadminsecretkey`
+- run > `yarn start`
 - in browser you will get project running on http://localhost:3000/ 
 - Add new products and see the list afterwards
 - The product list show products added in database,
 - The total product count and the sum of the stock are showin above the list with a Add Product button
 - No tests added
+
