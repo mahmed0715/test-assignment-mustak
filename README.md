@@ -43,12 +43,12 @@ Hasura console is available at http://localhost:8080/console.
 To add migrations for new database tables, you would have to run Hasura console locally using [Hasura CLI](https://hasura.io/docs/latest/hasura-cli/overview/).# test-assignment-mustak
 
 
-Comment from Mustak
+# Instructions to run the application from Mustak
 - Used hasura cloud graphql endpoint, so no need to run docker compose up
 - run > yarn install
 - run > yarn start
-- in browser you will get project running on http://localhost:3000/ 
-- Add new products and see the list afterwards
-- The product list show products added in database,
-- The total product count and the sum of the stock are showin above the list with a Add Product button
+- In browser you will get project running on http://localhost:3000/ 
+- Add new products and see the list of products afterwards
+- The product list shows products added in database,
+- The total product count and the sum of the stock are showin above the list with a `Add Product` button
 - No tests added
